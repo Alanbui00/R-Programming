@@ -1,0 +1,73 @@
+---
+title: "Creating different visualizations"
+author: '[Alan Bui]'
+
+---
+
+---
+
+## Adding pakages needed
+
+For the visualizations that I will be doing all we need is ggplot2
+```{r setup}
+# Add your library below.
+
+library(ggplot2)
+
+```
+
+
+## Visualization 1 - Creating histogram
+
+For this visualization I will create a histogram of `mpg`
+
+```{r, "Step 1"}
+# Write your code below.
+ggplot(mtcars, aes(mpg)) + geom_histogram(bins = 30)
+
+
+
+```
+
+---
+
+## Visualization 2 -Boxplots
+
+For this visualization I will create a boxplots of `mpg` by `cyl`. With 3 box plots: one for all cars with 4 cylinders, one for all cars with 6 cylinders, and one with all the cars with 8 cylinders.
+
+```{r, "Step 2"}
+# Write your code below.
+ggplot(mtcars, aes(group=cyl, x = cyl, mpg)) + geom_boxplot()
+
+
+
+```
+
+---
+
+## Visualization 3 -MultiLine chart 
+
+For this visualization I will create a multiLine chart of `wt` on the x-axis, `mpg` for the y-axis. With a line for each `am` (i.e. two lines).
+
+```{r, "Step 3"}
+# Write your code below.
+ggplot(mtcars, aes(x=wt, group=am, color = am, y=mpg)) + geom_line()
+
+
+
+```
+
+---
+
+## Visualization 4 -Barchart
+
+Barchart with the x-axis being the name of each car, and the height being `wt`.
+Make sure to rotate the x-axis labels, so we can actually read the car name.
+
+```{r, "Step 4"}
+# Write your code below.
+barchart <- ggplot(mtcars, aes(x=rownames(mtcars), y=wt)) + geom_bar(stat = "identity")
+barchart
+
+
+```
